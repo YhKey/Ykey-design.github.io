@@ -109,11 +109,8 @@
   <div class="work-description">
     <p>极简品牌视觉设计，包含标志、色彩、字体系统与应用物料，整体风格克制、干净、现代。</p>
     <p>通过简洁的设计语言，表达品牌的核心价值和个性，创造出具有识别度的视觉形象。</p>
-    <div class="expandable">
-      <p>设计过程中注重细节和一致性，确保品牌在不同应用场景下都能保持统一的视觉体验。色彩选择以中性色调为主，搭配少量强调色，营造出专业、现代的品牌氛围。</p>
-      <p>字体系统采用无衬线字体，保证在各种尺寸下的可读性，同时传递出简洁、现代的品牌气质。</p>
-    </div>
-    <button class="read-more" id="readMore">Read more...</button>
+    <p>设计过程中注重细节和一致性，确保品牌在不同应用场景下都能保持统一的视觉体验。色彩选择以中性色调为主，搭配少量强调色，营造出专业、现代的品牌氛围。</p>
+    <p>字体系统采用无衬线字体，保证在各种尺寸下的可读性，同时传递出简洁、现代的品牌气质。</p>
   </div>
   
   <!-- 底部导航 -->
@@ -206,24 +203,7 @@ if (workImages) {
   console.error('Work-images element not found');
 }
 
-// 展开/收起功能
-const readMoreBtn = document.getElementById('readMore');
-const expandableContent = document.querySelector('.expandable');
-let isExpanded = false;
 
-readMoreBtn.addEventListener('click', () => {
-  isExpanded = !isExpanded;
-  if (isExpanded) {
-    expandableContent.style.display = 'block';
-    readMoreBtn.textContent = 'Close';
-  } else {
-    expandableContent.style.display = 'none';
-    readMoreBtn.textContent = 'Read more...';
-  }
-});
-
-// 初始状态：收起
-expandableContent.style.display = 'none';
 </script>
 </body>
 </html>
