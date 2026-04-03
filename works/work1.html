@@ -12,16 +12,16 @@
     .work-info h1{font-size:clamp(28px,5vw,52px);font-weight:600;line-height:1.1;margin-bottom:16px}
     .work-info .desc{font-size:15px;color:#444;line-height:1.6;margin-bottom:40px}
     .work-info .team{font-size:14px;color:#888}
-    .work-slider{position:relative;width:100vw;height:100vh;z-index:2}
-    .slide-track{display:flex;gap:40px;height:100%;padding:0 5vw;align-items:center}
-    .slide-track img{height:70vh;object-fit:cover;border-radius:2px}
+    .work-slider{position:relative;width:100vw;height:100vh;z-index:2;overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth}
+    .slide-track{display:flex;gap:40px;height:100%;padding:0 5vw;align-items:center;transform:translateX(calc(100vw - 50%));transition:transform 0.3s ease}
+    .slide-track img{height:70vh;object-fit:cover;border-radius:2px;min-width:50vw}
   </style>
 </head>
 <body>
 
 <nav>
   <div class="logo">Ykey Design</div>
-  <a href="index.html" class="back">← Back</a>
+  <a href="../index.html" class="back">← Back</a>
 </nav>
 
 <div class="work-info">
@@ -32,14 +32,47 @@
 
 <div class="work-slider" id="slider">
   <div class="slide-track">
-    <img src="images/p1_1.jpg">
-    <img src="images/p1_2.jpg">
-    <img src="images/p1_3.jpg">
-    <img src="images/p1_4.jpg">
-    <img src="images/p1_5.jpg">
+    <img src="../images/p1_1.jpg">
+    <img src="../images/p1_2.jpg">
+    <img src="../images/p1_3.jpg">
+    <img src="../images/p1_4.jpg">
+    <img src="../images/p1_5.jpg">
   </div>
 </div>
 
-<script>const slider=document.getElementById('slider');window.addEventListener('wheel',e=>{slider.scrollLeft+=e.deltaY});</script>
+<script>
+const slider = document.getElementById('slider');
+const slideTrack = document.querySelector('.slide-track');
+
+// 初始化滑块位置
+function initSliderPosition() {
+  // 计算初始位置，让第一张图片从右侧露出一半
+  const windowWidth = window.innerWidth;
+  const initialPosition = windowWidth - (windowWidth * 0.9);
+  slider.scrollLeft = initialPosition;
+}
+
+// 初始化位置
+initSliderPosition();
+
+// 监听窗口大小变化，重新计算位置
+window.addEventListener('resize', initSliderPosition);
+
+// 监听滚轮事件
+window.addEventListener('wheel', (e) => {
+  // 阻止默认滚动行为
+  e.preventDefault();
+  
+  // 根据滚轮方向调整滚动速度
+  const scrollSpeed = 2000; // 滚动速度
+  if (e.deltaY > 0) {
+    // 向下滚动，图片从右往左
+    slider.scrollLeft += scrollSpeed;
+  } else {
+    // 向上滚动，图片从左往右
+    slider.scrollLeft -= scrollSpeed;
+  }
+}, { passive: false });
+</script>
 </body>
 </html>
