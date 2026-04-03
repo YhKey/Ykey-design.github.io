@@ -24,6 +24,13 @@
     .contact-item .value a{text-decoration:none;color:#111;font-size:14px;opacity:.7;transition:opacity .3s}
     .contact-item .value a:hover{opacity:1}
     
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      nav{padding:16px 5vw}
+      .menu a{margin-left:16px;font-size:13px}
+      .contact-info{flex-direction:column;gap:30px;width:90%}
+      .contact-item{text-align:left}
+    }
   </style>
 </head>
 <body>

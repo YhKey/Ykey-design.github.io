@@ -6,13 +6,13 @@
   <title>Ykey Design</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111;padding-bottom:100px}
-    nav{position:fixed;top:0;width:100%;padding:26px 5vw;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.97);z-index:99}
-    .logo{font-size:18px;font-weight:500}.menu a{margin-left:28px;text-decoration:none;color:#111;font-size:15px;opacity:.7;transition:opacity .3s}.menu a:hover{opacity:1}
+    nav{position:fixed;top:0;width:100%;padding:20px 5vw;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.97);z-index:99}
+    .logo{font-size:16px;font-weight:500}.menu a{margin-left:20px;text-decoration:none;color:#111;font-size:14px;opacity:.7;transition:opacity .3s}.menu a:hover{opacity:1}
     .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 5vw}
     .hero h1{font-size:clamp(36px,8.5vw,100px);font-weight:500;line-height:1.04;margin-bottom:24px;opacity:0;animation:fadeIn 1.2s .2s forwards}
     .hero p{font-size:16px;color:#555;max-width:520px;opacity:0;animation:fadeIn 1.2s .5s forwards}
     @keyframes fadeIn{to{opacity:1}}
-    .works{padding:20px 5vw;column-count:2;column-gap:32px}@media(max-width:768px){.works{column-count:1}}
+    .works{padding:20px 5vw;column-count:2;column-gap:32px}
     .work-item{display:block;text-decoration:none;color:inherit;break-inside:avoid;margin-bottom:44px}
     .work-img{position:relative;width:100%;overflow:hidden;margin-bottom:14px}
     .work-img img{width:100%;display:block;transition:opacity .6s}
@@ -27,6 +27,18 @@
     .about-text{max-width:620px;font-size:16px;line-height:1.7}
     .contact{padding:80px 5vw}
     .contact a{font-size:20px;color:#111;text-decoration:none;border-bottom:1px solid #111;padding-bottom:3px}
+    
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      nav{padding:16px 5vw}
+      .menu a{margin-left:16px;font-size:13px}
+      .works{column-count:1;column-gap:0}
+      .work-item{margin-bottom:30px}
+      .work-title{font-size:18px}
+      .about{padding:80px 5vw}
+      .contact{padding:60px 5vw}
+      .contact a{font-size:18px}
+    }
   </style>
 </head>
 <body>

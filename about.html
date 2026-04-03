@@ -8,9 +8,9 @@
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111;overflow-x:hidden}
-    nav{position:fixed;top:0;width:100%;padding:26px 5vw;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.97);z-index:100}
-    .logo{font-size:18px;font-weight:500}
-    .menu a{margin-left:28px;text-decoration:none;color:#111;font-size:15px;opacity:.7;transition:opacity .3s}
+    nav{position:fixed;top:0;width:100%;padding:20px 5vw;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.97);z-index:100}
+    .logo{font-size:16px;font-weight:500}
+    .menu a{margin-left:20px;text-decoration:none;color:#111;font-size:14px;opacity:.7;transition:opacity .3s}
     .menu a:hover{opacity:1}
     .menu a.active{opacity:1}
     
@@ -21,7 +21,7 @@
     .slide-container{display:flex;height:100%;transition:transform 1s ease}
     
     /* 每个滑动页面 */
-    .slide-page{min-width:100vw;height:100%;padding:120px 5vw;display:flex;flex-direction:column;justify-content:center}
+    .slide-page{min-width:100vw;height:100%;padding:100px 5vw;display:flex;flex-direction:column;justify-content:center}
     
     /* 标题和内容 */
     .page-title{font-size:14px;color:#999;margin-bottom:40px}
@@ -38,6 +38,17 @@
     .bottom-nav{position:fixed;bottom:50px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:50}
     .nav-dot{width:8px;height:8px;border-radius:50%;background:#ddd;cursor:pointer;transition:background .3s}
     .nav-dot.active{background:#111}
+    
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      nav{padding:16px 5vw}
+      .menu a{margin-left:16px;font-size:13px}
+      .slide-page{padding:80px 5vw}
+      .page-content{font-size:15px}
+      .page-content p{margin-bottom:30px}
+      .fixed-right{display:none}
+      .bottom-nav{bottom:30px}
+    }
   </style>
 </head>
 <body>
