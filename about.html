@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Ykey Design</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111;overflow-x:hidden}
+    nav{position:fixed;top:0;width:100%;padding:26px 5vw;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.97);z-index:100}
+    .logo{font-size:18px;font-weight:500}
+    .menu a{margin-left:28px;text-decoration:none;color:#111;font-size:15px;opacity:.7;transition:opacity .3s}
+    .menu a:hover{opacity:1}
+    .menu a.active{opacity:1}
+    
+    /* 主容器 */
+    .container{width:100%;height:100vh;overflow:hidden;position:relative}
+    
+    /* 滑动容器 */
+    .slide-container{display:flex;height:100%;transition:transform 1s ease}
+    
+    /* 每个滑动页面 */
+    .slide-page{min-width:100vw;height:100%;padding:120px 5vw;display:flex;flex-direction:column;justify-content:center}
+    
+    /* 标题和内容 */
+    .page-title{font-size:14px;color:#999;margin-bottom:40px}
+    .page-content{max-width:800px;font-size:16px;line-height:1.7}
+    .page-content p{margin-bottom:40px}
+    
+    /* 右侧固定元素 */
+    .fixed-right{position:fixed;right:5vw;top:50%;transform:translateY(-50%);z-index:50}
+    .fixed-right a{display:block;text-decoration:none;color:#111;font-size:14px;margin-bottom:30px;opacity:.7;transition:all .3s}
+    .fixed-right a:hover{opacity:1}
+    .fixed-right a.active{opacity:1}
+    
+    /* 底部导航 */
+    .bottom-nav{position:fixed;bottom:50px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:50}
+    .nav-dot{width:8px;height:8px;border-radius:50%;background:#ddd;cursor:pointer;transition:background .3s}
+    .nav-dot.active{background:#111}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><a href="index.html" style="text-decoration:none;">Ykey Design</a></div>
+  <div class="menu">
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="slide-container" id="slideContainer">
+    <!-- 第一页 -->
+    <div class="slide-page">
+      <div class="page-title">About Nous</div>
+      <div class="page-content">
+        <p>The term "nous" can be defined as common sense and rationality. It can also refer to the intellect or intuition, ultimately discerning what is true or real.</p>
+        <p>Common sense in our everyday life: Almost everything is related to design. Like the clothing you are wearing, the car you are riding from or to your place and the cup you use on the screen — they are all products of design.</p>
+        <p>Design has long become integral to our lives, part of our common sense. We believe a designer's work is closely related to our daily experience. No disciplines give form to what is valueless or formless through different mediums, creating visual expressions that modulate our perceptions and the framework we have to achieve.</p>
+      </div>
+    </div>
+    
+    <!-- 第二页 -->
+    <div class="slide-page">
+      <div class="page-title">Our Approach</div>
+      <div class="page-content">
+        <p>Personally, We take an objective approach for each project and design proposal that best suit our clients' needs. At the start of each project, we will investigate thoroughly to gain an in-depth perspective of the new project.</p>
+        <p>Design is our core strength and established through our proven methods. We welcome new ideas and stay on the cutting edge of our new breakthroughs, not limiting ourselves to a particular design style or methodology. The final product can take on many forms, but it always stems from a deep understanding of the project objectives.</p>
+      </div>
+    </div>
+    
+    <!-- 第三页 -->
+    <div class="slide-page">
+      <div class="page-title">Collaboration</div>
+      <div class="page-content">
+        <p>We believe in collaborations built on shared visions and mutual respect, allowing design to best serve its purpose.</p>
+        <p>Our team consists of talented individuals with diverse backgrounds, working together to create innovative and impactful design solutions.</p>
+        <p>We are always open to new opportunities and partnerships that align with our values and creative direction.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fixed-right">
+  <a href="javascript:void(0)" onclick="goToPage(0)">About Nous</a>
+  <a href="javascript:void(0)" onclick="goToPage(1)">Our Approach</a>
+  <a href="javascript:void(0)" onclick="goToPage(2)">Collaboration</a>
+</div>
+
+<div class="bottom-nav" id="bottomNav">
+  <div class="nav-dot active" data-index="0"></div>
+  <div class="nav-dot" data-index="1"></div>
+  <div class="nav-dot" data-index="2"></div>
+</div>
+
+<script>
+const slideContainer = document.getElementById('slideContainer');
+const slidePages = document.querySelectorAll('.slide-page');
+const navDots = document.querySelectorAll('.nav-dot');
+let currentIndex = 0;
+const totalPages = slidePages.length;
+
+// 滚动到指定页面
+function goToPage(index) {
+  // 确保index在有效范围内
+  index = Math.max(0, Math.min(index, totalPages - 1));
+  const translateX = -index * 100;
+  slideContainer.style.transform = `translateX(${translateX}%)`;
+  currentIndex = index;
+  
+  // 更新导航点状态
+  navDots.forEach((dot, i) => {
+    if (i === index) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  });
+  
+  // 更新右侧固定链接状态
+  const fixedLinks = document.querySelectorAll('.fixed-right a');
+  fixedLinks.forEach((link, i) => {
+    if (i === index) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+
+// 监听滚轮事件
+let isScrolling = false;
+window.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  
+  // 防止连续滚动导致的多次触发
+  if (isScrolling) return;
+  
+  isScrolling = true;
+  
+  if (e.deltaY > 0) {
+    // 向下滚动，下一页
+    if (currentIndex < totalPages - 1) {
+      goToPage(currentIndex + 1);
+    }
+  } else {
+    // 向上滚动，上一页
+    if (currentIndex > 0) {
+      goToPage(currentIndex - 1);
+    }
+  }
+  
+  // 短暂延迟后允许再次滚动
+  setTimeout(() => {
+    isScrolling = false;
+  }, 1000);
+}, { passive: false });
+
+// 监听导航点点击
+navDots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    const index = parseInt(dot.dataset.index);
+    goToPage(index);
+  });
+});
+
+// 初始化页面状态
+goToPage(0);
+</script>
+
+</body>
+</html>

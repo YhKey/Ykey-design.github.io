@@ -5,16 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minimal Brand Visual | Ykey Design</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111;overflow-x:hidden}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111;overflow-x:hidden}
     nav{position:fixed;top:0;width:100%;padding:26px 5vw;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.97);z-index:100}
-    .logo{font-size:18px;font-weight:500}.back{text-decoration:none;color:#111;font-size:15px}
-    .work-info{position:fixed;top:50%;left:5vw;transform:translateY(-50%);z-index:1;width:40vw}
-    .work-info h1{font-size:clamp(28px,5vw,52px);font-weight:600;line-height:1.1;margin-bottom:16px}
-    .work-info .desc{font-size:15px;color:#444;line-height:1.6;margin-bottom:40px}
-    .work-info .team{font-size:14px;color:#888}
-    .work-slider{position:relative;width:100vw;height:100vh;z-index:2;overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth}
-    .slide-track{display:flex;gap:40px;height:100%;padding:0 5vw;align-items:center;transform:translateX(calc(100vw - 50%));transition:transform 0.3s ease}
-    .slide-track img{height:70vh;object-fit:cover;border-radius:2px;min-width:50vw}
+    .logo{font-size:18px;font-weight:500}
+    .back{text-decoration:none;color:#111;font-size:15px}
+    
+    /* 主容器 */
+    .container{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:1fr auto;gap:15px;padding:120px 5vw 80px 5vw;min-height:100vh}
+    
+    /* 左侧：作品图片区域 */
+    .work-images{grid-column:1 / 3;grid-row:1;border:1px solid #ddd;padding:10px}
+    .work-slider{width:100%;height:500px;overflow:hidden;position:relative;border:1px solid #ddd;display:flex;align-items:center;justify-content:center}
+    .slide-track{display:flex;transition:transform 0.8s ease;height:100%;align-items:center}
+    .slide-track img{width:100%;height:auto;object-fit:contain;flex-shrink:0}
+    
+    /* 作品基本信息 */
+    .work-meta{margin-top:10px;border:1px solid #ddd;padding:10px}
+    .work-meta h2{font-size:24px;font-weight:600;margin-bottom:8px}
+    .work-meta .date{font-size:14px;color:#666;margin-bottom:12px}
+    .work-meta .details{font-size:14px;color:#888;line-height:1.5}
+    
+    /* 中间：作品具体信息 */
+    .work-content{grid-column:3;grid-row:1;border:1px solid #ddd;padding:15px}
+    .work-content h1{font-size:36px;font-weight:700;margin-bottom:20px;line-height:1.2}
+    .work-content .project-list{margin-bottom:20px}
+    .project-item{display:flex;align-items:flex-start;margin-bottom:15px}
+    .project-number{font-size:18px;font-weight:600;margin-right:10px;color:#999;min-width:30px}
+    .project-title{font-size:16px;font-weight:500}
+    
+    /* 右侧：作品描述 */
+    .work-description{grid-column:4;grid-row:1;border:1px solid #ddd;padding:15px}
+    .work-description p{font-size:14px;line-height:1.6;color:#444;margin-bottom:15px}
+    .work-description .expandable{position:relative;border:1px solid #ddd;padding:10px;margin-bottom:10px}
+    .work-description .read-more{background:none;border:1px solid #ddd;padding:5px 10px;color:#111;font-size:14px;cursor:pointer;margin-top:5px}
+    
+    /* 底部导航 */
+    .bottom-nav{grid-column:1 / -1;grid-row:2;border:1px solid #ddd;padding:20px;margin-top:10px;display:flex;justify-content:space-between;align-items:center}
+    .nav-item{display:flex;align-items:center;text-decoration:none;color:#111}
+    .nav-item .arrow{font-size:12px;margin-right:8px}
+    .nav-item.next .arrow{margin-right:0;margin-left:8px}
   </style>
 </head>
 <body>
@@ -24,55 +55,175 @@
   <a href="../index.html" class="back">← Back</a>
 </nav>
 
-<div class="work-info">
-  <h1>Minimal Brand Visual</h1>
-  <div class="desc">极简品牌视觉设计，包含标志、色彩、字体系统与应用物料，整体风格克制、干净、现代。</div>
-  <div class="team">Creative Direction: Ykey<br>Design: Ykey Studio</div>
-</div>
-
-<div class="work-slider" id="slider">
-  <div class="slide-track">
-    <img src="../images/p1_1.jpg">
-    <img src="../images/p1_2.jpg">
-    <img src="../images/p1_3.jpg">
-    <img src="../images/p1_4.jpg">
-    <img src="../images/p1_5.jpg">
+<div class="container">
+  <!-- 左侧：作品图片 -->
+  <div class="work-images">
+    <div class="work-slider" id="slider">
+      <div class="slide-track">
+        <img src="../images/p1_1.jpg">
+        <img src="../images/p1_2.jpg">
+        <img src="../images/p1_3.jpg">
+        <img src="../images/p1_4.jpg">
+        <img src="../images/p1_5.jpg">
+      </div>
+    </div>
+    <div class="work-meta">
+      <h2>Minimal Brand Visual</h2>
+      <div class="date">2023</div>
+      <div class="details">
+        尺寸: 多种应用尺寸<br>
+        类型: 品牌设计<br>
+        设计: Ykey Studio
+      </div>
+    </div>
   </div>
+  
+  <!-- 中间：作品具体信息 -->
+  <div class="work-content">
+    <h1>Minimal Brand Visual</h1>
+    <div class="project-list">
+      <div class="project-item">
+        <div class="project-number">01</div>
+        <div class="project-title">品牌标志设计</div>
+      </div>
+      <div class="project-item">
+        <div class="project-number">02</div>
+        <div class="project-title">色彩系统</div>
+      </div>
+      <div class="project-item">
+        <div class="project-number">03</div>
+        <div class="project-title">字体系统</div>
+      </div>
+      <div class="project-item">
+        <div class="project-number">04</div>
+        <div class="project-title">应用物料</div>
+      </div>
+      <div class="project-item">
+        <div class="project-number">05</div>
+        <div class="project-title">品牌指南</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 右侧：作品描述 -->
+  <div class="work-description">
+    <p>极简品牌视觉设计，包含标志、色彩、字体系统与应用物料，整体风格克制、干净、现代。</p>
+    <p>通过简洁的设计语言，表达品牌的核心价值和个性，创造出具有识别度的视觉形象。</p>
+    <div class="expandable">
+      <p>设计过程中注重细节和一致性，确保品牌在不同应用场景下都能保持统一的视觉体验。色彩选择以中性色调为主，搭配少量强调色，营造出专业、现代的品牌氛围。</p>
+      <p>字体系统采用无衬线字体，保证在各种尺寸下的可读性，同时传递出简洁、现代的品牌气质。</p>
+    </div>
+    <button class="read-more" id="readMore">Read more...</button>
+  </div>
+  
+  <!-- 底部导航 -->
+  <!-- <div class="bottom-nav">
+    <a href="#" class="nav-item prev">
+      <span class="arrow">←</span>
+      <span>Previous Project</span>
+    </a>
+    <a href="#" class="nav-item next">
+      <span>Next Project</span>
+      <span class="arrow">→</span>
+    </a>
+  </div> -->
 </div>
 
 <script>
 const slider = document.getElementById('slider');
-const slideTrack = document.querySelector('.slide-track');
+const slideTrack = slider.querySelector('.slide-track');
+const images = slideTrack.querySelectorAll('img');
+let currentIndex = 0;
+const totalImages = images.length;
+console.log('Slider initialized:', slider);
+console.log('Total images:', totalImages);
 
-// 初始化滑块位置
-function initSliderPosition() {
-  // 计算初始位置，让第一张图片从右侧露出一半
-  const windowWidth = window.innerWidth;
-  const initialPosition = windowWidth - (windowWidth * 0.9);
-  slider.scrollLeft = initialPosition;
+// 初始化滑块
+function initSlider() {
+  // 确保每张图片都能保持原尺寸并在容器内显示
+  images.forEach(img => {
+    img.style.flexShrink = '0';
+  });
 }
 
-// 初始化位置
-initSliderPosition();
+// 滚动到指定图片
+function goToSlide(index) {
+  // 确保index在有效范围内
+  index = Math.max(0, Math.min(index, totalImages - 1));
+  const sliderWidth = slider.offsetWidth;
+  const translateX = -index * sliderWidth;
+  slideTrack.style.transform = `translateX(${translateX}px)`;
+  currentIndex = index;
+  console.log('Current index:', currentIndex, 'Total images:', totalImages, 'Slider width:', sliderWidth, 'TranslateX:', translateX);
+}
 
-// 监听窗口大小变化，重新计算位置
-window.addEventListener('resize', initSliderPosition);
+// 初始化
+initSlider();
 
 // 监听滚轮事件
-window.addEventListener('wheel', (e) => {
-  // 阻止默认滚动行为
-  e.preventDefault();
-  
-  // 根据滚轮方向调整滚动速度
-  const scrollSpeed = 2000; // 滚动速度
-  if (e.deltaY > 0) {
-    // 向下滚动，图片从右往左
-    slider.scrollLeft += scrollSpeed;
+let isScrolling = false;
+// 获取work-images元素
+const workImages = document.querySelector('.work-images');
+// 确保元素存在
+if (workImages) {
+  console.log('Adding wheel event listener to work-images');
+  workImages.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    
+    console.log('Wheel event triggered:', e.deltaY, 'Current index:', currentIndex, 'Total images:', totalImages);
+    
+    // 防止连续滚动导致的多次触发
+    if (isScrolling) {
+      console.log('Scrolling in progress, skipping');
+      return;
+    }
+    
+    // 检查是否在边界
+    if ((e.deltaY > 0 && currentIndex >= totalImages - 1) || (e.deltaY < 0 && currentIndex <= 0)) {
+      console.log('At boundary, stopping');
+      return;
+    }
+    
+    isScrolling = true;
+    
+    if (e.deltaY > 0) {
+      // 向下滚动，下一张
+      console.log('Scrolling down, going to index:', currentIndex + 1);
+      goToSlide(currentIndex + 1);
+    } else {
+      // 向上滚动，上一张
+      console.log('Scrolling up, going to index:', currentIndex - 1);
+      goToSlide(currentIndex - 1);
+    }
+    
+    // 短暂延迟后允许再次滚动
+    setTimeout(() => {
+      isScrolling = false;
+      console.log('Scrolling finished, ready for next scroll');
+    }, 500);
+  }, { passive: false });
+} else {
+  console.error('Work-images element not found');
+}
+
+// 展开/收起功能
+const readMoreBtn = document.getElementById('readMore');
+const expandableContent = document.querySelector('.expandable');
+let isExpanded = false;
+
+readMoreBtn.addEventListener('click', () => {
+  isExpanded = !isExpanded;
+  if (isExpanded) {
+    expandableContent.style.display = 'block';
+    readMoreBtn.textContent = 'Close';
   } else {
-    // 向上滚动，图片从左往右
-    slider.scrollLeft -= scrollSpeed;
+    expandableContent.style.display = 'none';
+    readMoreBtn.textContent = 'Read more...';
   }
-}, { passive: false });
+});
+
+// 初始状态：收起
+expandableContent.style.display = 'none';
 </script>
 </body>
 </html>

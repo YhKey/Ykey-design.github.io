@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Ykey Design</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111;overflow-x:hidden}
+    nav{position:fixed;top:0;width:100%;padding:26px 5vw;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.97);z-index:100}
+    .logo{font-size:18px;font-weight:500}
+    .menu a{margin-left:28px;text-decoration:none;color:#111;font-size:15px;opacity:.7;transition:opacity .3s}
+    .menu a:hover{opacity:1}
+    .menu a.active{opacity:1}
+    
+    /* 主容器 */
+    .container{width:100%;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+    
+    /* 联系信息 */
+    .contact-info{display:flex;justify-content:space-between;width:80%;max-width:1000px}
+    .contact-item{text-align:left}
+    .contact-item .label{font-size:14px;font-weight:500;margin-bottom:10px;opacity:.7}
+    .contact-item .value a{text-decoration:none;color:#111;font-size:14px;opacity:.7;transition:opacity .3s}
+    .contact-item .value a:hover{opacity:1}
+    
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><a href="index.html" style="text-decoration:none;">Ykey Design</a></div>
+  <div class="menu">
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="contact-info">
+    <div class="contact-item">
+      <div class="label">E</div>
+      <div class="value">
+        <a href="mailto:info@ykeydesign.co">info@ykeydesign.co</a>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="label">T</div>
+      <div class="value">
+        <a href="tel:+85263554777">+852 6355 4777</a>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="label">IG</div>
+      <div class="value">
+        <a href="https://instagram.com/ykeydesign" target="_blank">@ykeydesign</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
