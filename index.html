@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ykey Design</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111;padding-bottom:100px}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter', -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#111;padding-bottom:100px}
     nav{position:fixed;top:0;width:100%;padding:20px 5vw;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.97);z-index:99}
+    img{user-select:none;-webkit-user-drag:none;pointer-events:none}
     .logo{font-size:16px;font-weight:500}.menu a{margin-left:20px;text-decoration:none;color:#111;font-size:14px;opacity:.7;transition:opacity .3s}.menu a:hover{opacity:1}
     .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 5vw}
     .hero h1{font-size:clamp(36px,8.5vw,100px);font-weight:500;line-height:1.04;margin-bottom:24px;opacity:0;animation:fadeIn 1.2s .2s forwards}
@@ -60,8 +61,8 @@
 <section class="works" id="works">
   <a class="work-item" href="works/work1.html">
     <div class="work-img">
-      <img src="images/cover1.jpg" class="img-default">
-      <img src="images/cover1_hover.jpg" class="img-hover">
+      <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/cover1.jpg" class="img-default">
+      <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/cover1_hover.jpg" class="img-hover">
     </div>
     <div class="work-title">Minimal Brand Visual</div>
     <div class="work-category">Branding / Graphic</div>
@@ -69,8 +70,8 @@
 
   <a class="work-item" href="works/work2.html">
     <div class="work-img">
-      <img src="images/cover2.jpg" class="img-default">
-      <img src="images/cover2_hover.gif" class="img-hover">
+      <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/cover2.jpg" class="img-default">
+      <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/cover2_hover.gif" class="img-hover">
     </div>
     <div class="work-title">UI Animation Concept</div>
     <div class="work-category">UI / Motion</div>
@@ -78,8 +79,8 @@
 
   <a class="work-item" href="works/work3.html">
     <div class="work-img">
-      <img src="images/cover3.jpg" class="img-default">
-      <img src="images/cover3_hover.jpg" class="img-hover">
+      <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/cover3.jpg" class="img-default">
+      <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/cover3_hover.jpg" class="img-hover">
     </div>
     <div class="work-title">Mobile App Interface</div>
     <div class="work-category">UX / UI Design</div>
@@ -87,8 +88,8 @@
 
   <a class="work-item" href="works/work4.html">
     <div class="work-img">
-      <img src="images/cover4.jpg" class="img-default">
-      <img src="images/cover4_hover.gif" class="img-hover">
+      <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/cover4.jpg" class="img-default">
+      <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/cover4_hover.gif" class="img-hover">
     </div>
     <div class="work-title">3D Visual Experience</div>
     <div class="work-category">3D / Interactive</div>
@@ -96,8 +97,8 @@
 
   <a class="work-item" href="works/work5.html">
     <div class="work-img">
-      <img src="images/cover5.jpg" class="img-default">
-      <img src="images/cover5_hover.jpg" class="img-hover">
+      <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/cover5.jpg" class="img-default">
+      <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/cover5_hover.jpg" class="img-hover">
     </div>
     <div class="work-title">Website Layout Design</div>
     <div class="work-category">Web / Visual</div>
@@ -105,5 +106,27 @@
 </section>
 
 
+<script>
+// 禁用右键菜单
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+// 禁用Ctrl+S、Ctrl+U等快捷键
+document.addEventListener('keydown', function(e) {
+  // 禁用Ctrl+S
+  if (e.ctrlKey && e.key === 's') {
+    e.preventDefault();
+  }
+  // 禁用Ctrl+U
+  if (e.ctrlKey && e.key === 'u') {
+    e.preventDefault();
+  }
+  // 禁用F12
+  if (e.key === 'F12') {
+    e.preventDefault();
+  }
+});
+</script>
 </body>
 </html>

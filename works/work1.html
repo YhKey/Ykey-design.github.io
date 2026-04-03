@@ -11,6 +11,7 @@
     nav{position:fixed;top:0;width:100%;padding:20px 5vw;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.97);z-index:100}
     .logo{font-size:16px;font-weight:500}
     .back{text-decoration:none;color:#111;font-size:14px}
+    img{user-select:none;-webkit-user-drag:none;pointer-events:none}
     
     /* 主容器 */
     .container{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:1fr auto;gap:15px;padding:100px 5vw 60px 5vw;min-height:100vh}
@@ -71,11 +72,11 @@
   <div class="work-images">
     <div class="work-slider" id="slider">
       <div class="slide-track">
-        <img src="../images/p1_1.jpg">
-        <img src="../images/p1_2.jpg">
-        <img src="../images/p1_3.jpg">
-        <img src="../images/p1_4.jpg">
-        <img src="../images/p1_5.jpg">
+        <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/p1_1.jpg">
+        <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/p1_2.jpg">
+        <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/p1_3.jpg">
+        <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/p1_4.jpg">
+        <img src="https://cdn.jsdelivr.net/gh/YhKey/Ykey-design.github.io/images/p1_5.jpg">
       </div>
     </div>
     <div class="work-meta">
@@ -236,6 +237,26 @@ if (slider) {
   });
 }
 
+// 禁用右键菜单
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+// 禁用Ctrl+S、Ctrl+U等快捷键
+document.addEventListener('keydown', function(e) {
+  // 禁用Ctrl+S
+  if (e.ctrlKey && e.key === 's') {
+    e.preventDefault();
+  }
+  // 禁用Ctrl+U
+  if (e.ctrlKey && e.key === 'u') {
+    e.preventDefault();
+  }
+  // 禁用F12
+  if (e.key === 'F12') {
+    e.preventDefault();
+  }
+});
 </script>
 </body>
 </html>
